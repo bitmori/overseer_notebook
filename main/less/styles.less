@@ -1,0 +1,151 @@
+// credit to elemental UI team, most less code in this file is from their site.less
+// Elemental
+// ==============================
+
+@import "../../node_modules/elemental/less/elemental.less";
+
+@navbar-height: 50px;
+
+
+// global
+
+body {
+  font-family: "San Francisco", Helvetica, Arial, sans-serif;
+  font-weight: 200;
+}
+
+// Page Wrapper
+// ------------------------------
+
+.page-wrapper {
+  .display-flex();
+  .flex-direction(column);
+  min-height: 100vh;
+}
+.page-body {
+  .flex-grow(1);
+}
+
+// Page Body
+// ------------------------------
+
+.page-body {
+  padding: (@navbar-height + 10) 0;
+}
+
+.primary-nav {
+  .translate3d(0,0,0); // prevent repaints on scroll
+  background-color: fade(@body-bg, 95%);
+  box-shadow: 0 1px 0 fade(black, 17%);
+  font-size: @font-size-sm;
+  line-height: @navbar-height;
+  height: @navbar-height;
+  position: fixed;
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+  z-index: @zindex-dropdown-button + 1;
+}
+
+@nav-swatch-size: 20px;
+
+.primary-nav-swatch {
+  position: relative;
+  top: (@navbar-height - @nav-swatch-size) / 2;
+  float: left;
+  width: @nav-swatch-size;
+  height: @nav-swatch-size;
+  padding-right: 3px;
+  border-radius: @nav-swatch-size / 2;
+}
+
+.primary-nav-icon {
+  display: inline-block;
+  left: 0;
+  padding-left: 15px;
+  position: absolute;
+  //top: 50%;
+  font-size: x-large;
+  vertical-align: middle;
+  z-index: 2;
+  &.right{
+    left: auto;
+    right: 0;
+    padding-right: 15px;
+  }
+}
+
+// Container
+.table-container {
+  margin: 30px;
+  padding: 20px;
+  .border-top-radius(@border-radius-base);
+  .border-bottom-radius(@border-radius-base);
+  background-color: white;
+  border: 1px solid @code-border-color;
+}
+
+.dweller-info-sidebar {
+  padding: 10px 10px;
+  background-color: white;
+  border-left: 1px solid @code-border-color;
+}
+
+// Page Footer
+// ------------------------------
+
+.page-footer {
+  background-color: fade(@body-bg, 95%);
+  box-shadow: 0 -1px 0 fade(black, 17%);
+  color: @gray-light;
+  padding: 2em 0;
+  text-align: center;
+
+  a {
+    color: @brand-primary;
+    &:hover,
+    &:focus {
+      color: lighten(@brand-primary, 10%);
+      outline: none;
+    }
+  }
+}
+
+/**
+ * http://applemusic.tumblr.com/
+ */
+
+/** Ultra Light */
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 100;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-ultralight-webfont.woff2");
+}
+
+/** Thin */
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 200;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-thin-webfont.woff2");
+}
+
+/** Medium */
+@font-face {
+  font-family: "San Francisco";
+  font-weight: normal;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-medium-webfont.woff2");
+}
+
+/** Semi Bold */
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 500;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.woff2");
+}
+
+/** Bold */
+@font-face {
+  font-family: "San Francisco";
+  font-weight: bold;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff2");
+}
