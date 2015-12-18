@@ -2,7 +2,7 @@ import React from 'react';
 import {Glyph, Table, Pagination, Dropdown, Container} from "elemental";
 import DwellerInfo from './dweller';
 import DwellerDetailModal from './dwellerDetailModal';
-import {Actions} from './dispatcher';
+import {Actions} from './reduxette';
 
 const DROPDOWN_OPTIONS = [
     { label: 'Newborn Baby', value: 'ADD_BABY'},

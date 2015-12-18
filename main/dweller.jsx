@@ -1,5 +1,5 @@
 import React from 'react';
-import {Actions} from './dispatcher';
+import {Actions} from './reduxette';
 
 export default class DwellerInfo extends React.Component {
     constructor(props) {

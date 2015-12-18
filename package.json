@@ -23,11 +23,10 @@
   },
   "dependencies": {
     "elemental": "^0.5.7",
-    "flux": "^2.1.1",
     "marsdb": "^0.3.13",
     "react": "^0.14.3",
     "react-addons-css-transition-group": "^0.14.3",
     "react-dom": "^0.14.3",
-    "reflux": "^0.3.0"
+    "reduxette": "^0.1.1"
   }
 }

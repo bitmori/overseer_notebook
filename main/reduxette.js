@@ -1,33 +1,38 @@
-import {Dispatcher} from 'flux';
-
-let Enum = (...args) => args.reduce((r, i) => (r[i] = i, r), {});
+import {Enum, Factory} from 'reduxette';
 
 export const Constants = Enum("SHOW_DWELLER_INFO_MODAL", "ADD_DWELLER_BABY", "ADD_DWELLER_OUTSIDER", "ADD_DWELLER_EXISITING");
 
-export const AppDispatcher = new Dispatcher();
+let updater = (state, action) => {
+    state = state || {};
+    state['actionType'] = action.hasOwnProperty('actionType')?action.actionType:"";
+    state[action.actionType] = action.hasOwnProperty('payload')?action.payload:{};
+    return state;
+};
+
+export const Reduxette = Factory(updater);
 
 export const Actions =  {
     showDwellerInfo(dweller) {
-        AppDispatcher.dispatch({
+        Reduxette.dispatch({
             actionType: Constants.SHOW_DWELLER_INFO_MODAL,
-            dweller
+            payload:{dweller}
         });
     },
 
     addDwellerBaby() {
-        AppDispatcher.dispatch({
+        Reduxette.dispatch({
             actionType: Constants.ADD_DWELLER_BABY
         });
     },
 
     addDwellerOutsider() {
-        AppDispatcher.dispatch({
+        Reduxette.dispatch({
             actionType: Constants.ADD_DWELLER_OUTSIDER
         });
     },
 
     addDwellerExisting() {
-        AppDispatcher.dispatch({
+        Reduxette.dispatch({
             actionType: Constants.ADD_DWELLER_EXISITING
         });
     }

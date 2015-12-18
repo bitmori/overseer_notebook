@@ -1,5 +1,5 @@
 import React from 'react';
-import {Constants, AppDispatcher} from './dispatcher';
+import {Constants, Reduxette} from './reduxette';
 import {
     Modal, ModalHeader, ModalBody, ModalFooter,
     Button, Radio,
@@ -28,8 +28,11 @@ export default class DwellerDetailModal extends React.Component {
     }
 
 
-    _onChange(payload) {
-        switch (payload.actionType) {
+    _onChange() {
+        let state = Reduxette.getState();
+        let actionType = state.actionType;
+        let payload = state[actionType];
+        switch (actionType) {
             case Constants.SHOW_DWELLER_INFO_MODAL:
                 this.setState({
                     isAddingMode: false,
@@ -50,11 +53,11 @@ export default class DwellerDetailModal extends React.Component {
     }
 
     componentDidMount() {
-        this.dispToken = AppDispatcher.register(payload => this._onChange(payload));
+        this.unsubscribe = Reduxette.subscribe(() => this._onChange());
     }
 
     componentWillUnmount() {
-        AppDispatcher.unregister(this.dispToken);
+        this.unsubscribe();
     }
 
     renderSPECIALInput() {
